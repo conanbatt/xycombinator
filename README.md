@@ -3,22 +3,13 @@
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
-Things you may want to cover:
+* XYCombinator
 
-* Ruby version
+This is learners project to try out the latest Rails stack with Semantic-UI and Heroku deployments.
 
-* System dependencies
+The site's style is a blatant, openly recognized, and useless copy from startupschool.org.
 
-* Configuration
 
-* Database creation
 
-* Database initialization
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

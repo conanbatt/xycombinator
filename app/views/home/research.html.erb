@@ -1,0 +1,9 @@
+<div class="research">
+  <h1> ZC Research </h1>
+
+  <% @research_projects.map do |research|%>
+    <%= render partial: "tasks/task", locals: { task: research, show_children: false }%>
+  <% end %>
+  <%= link_to 'New Research', new_task_path({task_type: :research}), class: "ui primary submit button" %>
+</div>
+

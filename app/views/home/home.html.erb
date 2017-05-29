@@ -1,0 +1,11 @@
+
+
+<div class="home">
+  <h1> Startups </h1>
+
+  <% @startups.map do |startup|%>
+    <%= render partial: "tasks/task", locals: { task: startup, show_children: false }%>
+  <% end %>
+
+  <%= link_to 'New Startup', new_task_path({task_type: :startup}), class: "ui primary submit button" %>
+</div>

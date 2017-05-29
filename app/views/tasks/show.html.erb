@@ -1,4 +1,20 @@
-<p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_task_path(@task) %> |
-<%= link_to 'Back', tasks_path %>
+<div class="show_task">
+  <p id="notice"><%= notice %></p>
+
+  <%= render partial: "task", locals: { task: @task, show_children: true }%>
+
+  <div class="actions">
+    <% if @task.children.length == 0 %>
+      <%= form_with(model: @task, local: true, class: "complete_form") do |form| %>
+        <%= form.hidden_field(:progress, value: @task.progress == 100 ? 0 : 100) %>
+        <%= form.submit(@task.progress == 0 ? "Complete Task" : "Mark as Uncompleted", {class: "ui primary submit button"}) %>
+      <% end %>
+    <% end %>
+    <%= link_to 'Create Subtask', new_task_path({parent_id: @task.id}), class: "ui primary submit button" %>
+    <% if @task.parent_id %>
+      <%= link_to 'See Parent', task_path({id: @task.parent_id}), class: "ui primary submit button" %>
+    <% end %>
+    <%= link_to 'Edit', edit_task_path(@task), class: "ui secondary button" %>
+  </div>
+</div>

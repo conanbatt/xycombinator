@@ -1,0 +1,41 @@
+<div class="task">
+  <div class="ui segment">
+    <p> <%= task.title %> <span class="ui text
+      <%=
+        if(task.progress <33)
+          "red"
+        elsif(task.progress < 55)
+          "orange"
+        elsif(task.progress < 70)
+          "yellow"
+        elsif(task.progress < 100)
+          "olive"
+        else
+          "green"
+        end
+      %>"
+    >
+    <%= task.progress %> %</span></p>
+    <p> <%= task.description %> </p>
+    <a class="item" href=<%= task_path(task) %>> View Details </a>
+    <% if task.children.nil? %>
+      <div class="ui primary button"> Soon </div>
+    <% end %>
+  </div>
+
+  <% if task.children.length > 0 && show_children %>
+    <div class="subtasks">
+      <h4> Subtasks </h4>
+      <div class="ui grid">
+        <div class="row">
+          <% show_children && task.children.map do |child| %>
+            <div class="eight wide column ">
+              <%= render partial: "task", locals: { task: child, show_children: false }%>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+

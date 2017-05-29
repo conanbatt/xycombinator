@@ -19,6 +19,13 @@ class TasksController < ApplicationController
   # GET /tasks/new
   def new
     @task = Task.new
+    if(parent = params[:parent_id])
+      @task.parent_id = parent
+    end
+    if(tt = params[:task_type])
+      @task.task_type = tt
+    end
+    @task
   end
 
   # GET /tasks/1/edit
@@ -73,6 +80,6 @@ class TasksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
-      params.fetch(:task, {})
+      params.fetch(:task, {}).permit(:title, :parent_id, :progress, :description, :task_type)
     end
 end

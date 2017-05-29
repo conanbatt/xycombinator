@@ -9,15 +9,33 @@
   </head>
 
   <body>
-    <div class="header">
-      <div class="brand">
-        <img src="/tree_color.png"/>
-        <div class="nav_items">
-          <a href="/startup">My Startup </a>
-          <a href="/research">YC Research </a>
+
+    <div class="ui text container">
+      <div class="ui text menu header">
+        <a href="/" class="item">
+          <img src="/tree_color.png" class="ui tiny image" alt="logo"/>
+        </a>
+        <div class="ui stackable right text menu">
+          <a class="item" href="/tasks">Tasks </a>
+          <a class="item" href="/">ZC Startups </a>
+          <a class="item" href="/research">ZC Research </a>
         </div>
       </div>
     </div>
-    <%= yield %>
+    <div class="container ui text app_wrapper">
+      <%= yield %>
+    </div>
+    <div class="ui container text">
+      <div class="ui basic padded center aligned segment">
+        <p>
+          <span>© 2017</span>
+          <br/>
+          <span> Demo By <a class="item" href="github.com/conanbatt/ZCombinator">Conanbatt</a> </span>
+          <br/>
+          <span> All rights waivered </span>
+        </p>
+        <img src="/zcomb-tree_green.png" width="150" height="150"/>
+      </div>
+    </div>
   </body>
 </html>

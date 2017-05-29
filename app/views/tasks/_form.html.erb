@@ -11,7 +11,30 @@
     </div>
   <% end %>
 
+
+  <label class="ui text"> Title </label>
+  <div class="ui input field">
+    <%= form.text_field(:title) %>
+  </div>
+
+  <label class="ui text"> Description </label>
+  <div class="ui form field">
+    <%= form.text_area(:description) %>
+  </div>
+
+  <% if(!task.parent) %>
+    <label class="ui text"> Type </label>
+    <div class="ui input field">
+      <%= form.select(:task_type, (Task.task_types.keys)) %>
+    </div>
+  <% end %>
+
+  <label class="ui text"> Parent </label>
+  <div class="ui input field disabled">
+    <%= form.number_field(:parent_id) %>
+  </div>
+
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit({class: "ui primary submit button"}) %>
   </div>
 <% end %>
